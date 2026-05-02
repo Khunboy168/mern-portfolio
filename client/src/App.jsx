@@ -54,10 +54,11 @@ function App() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      // Connects to the Node.js backend
-      await axios.post('http://localhost:5000/api/contact', formData);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      const response = await axios.post('https://khun-portfolio-api.onrender.com/api/contact', formData);
+      if (response.status === 200) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      }
     } catch (error) {
       setSubmitStatus('error');
     }
