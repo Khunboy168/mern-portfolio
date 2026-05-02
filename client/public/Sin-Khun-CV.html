@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Khun - Professional Resume</title>
+    <style>
+        /* Base Styles & Print Overrides */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 40px 0;
+            color: #333;
+        }
+
+        /* A4 Page Setup */
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            min-height: 1100px;
+            overflow: hidden;
+        }
+
+        /* Left Sidebar - Dark Theme */
+        .sidebar {
+            width: 32%;
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .profile-container {
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 25px;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #06b6d4;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .role {
+            font-size: 14px;
+            color: #06b6d4;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0;
+        }
+
+        .sidebar-section h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #06b6d4;
+            margin: 0 0 15px 0;
+            border-left: 3px solid #06b6d4;
+            padding-left: 10px;
+        }
+
+        .contact-item {
+            font-size: 13px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .contact-label {
+            color: #94a3b8;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .contact-value, .contact-value a {
+            color: #f8fafc;
+            text-decoration: none;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-badge {
+            background: rgba(6, 182, 212, 0.15);
+            color: #22d3ee;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+        .education-degree {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 0 3px 0;
+        }
+        .education-school {
+            font-size: 12px;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        /* Right Content - Light Theme */
+        .main-content {
+            width: 68%;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .content-section h2 {
+            font-size: 20px;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .content-section h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        .summary-text {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #475569;
+            margin: 0;
+        }
+
+        .project-item {
+            margin-bottom: 25px;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        .project-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+        }
+        .project-link {
+            font-size: 12px;
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .project-tech {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+        .project-bullets {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #475569;
+        }
+        .project-bullets li {
+            margin-bottom: 4px;
+        }
+
+        .cert-list {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #475569;
+        }
+        .cert-list strong {
+            color: #0f172a;
+        }
+
+        /* Print Specifics */
+        @media print {
+            body { padding: 0; background: #fff; }
+            .page { box-shadow: none; max-width: 100%; margin: 0; width: 100%; min-height: 100vh; }
+            .sidebar { background-color: #0f172a !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-container">
+                <img src="profile.JPG" alt="Sin Khun" class="profile-image">
+                <h1 class="name">Sin Khun</h1>
+                <p class="role">Full-Stack Developer</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value"><a href="mailto:ks9397235@gmail.com">ks9397235@gmail.com</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Phone & WhatsApp</span>
+                    <span class="contact-value">+855 97 587 5054</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Telegram</span>
+                    <span class="contact-value"><a href="https://t.me/PSKNE1">@PSKNE1</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">LinkedIn</span>
+                    <span class="contact-value"><a href="https://linkedin.com/in/sin-khun-1a5a7a375">linkedin.com/in/sin-khun-1a5a7a375</a></span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Core Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-badge">React.js</span>
+                    <span class="skill-badge">Node.js</span>
+                    <span class="skill-badge">Laravel (PHP)</span>
+                    <span class="skill-badge">Tailwind CSS</span>
+                    <span class="skill-badge">Cybersecurity</span>
+                    <span class="skill-badge">MongoDB</span>
+                    <span class="skill-badge">MySQL</span>
+                    <span class="skill-badge">IoT Integration</span>
+                    <span class="skill-badge">REST APIs</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <p class="education-degree">B.Sc. Information Technology</p>
+                    <p class="education-school">Setec Institute • Year 2 Student</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <div class="content-section">
+                <h2>Profile</h2>
+                <p class="summary-text">
+                    Highly adaptable and security-focused Full-Stack Developer with 3+ years of practical experience building scalable web applications. Specialized in the MERN stack (MongoDB, Express, React, Node.js) and PHP/Laravel ecosystems. Proven expertise in integrating complex IoT hardware systems into dynamic web dashboards and conducting robust cybersecurity vulnerability assessments. Passionate about delivering premium UI/UX interfaces while maintaining strict backend security protocols.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Notable Projects</h2>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">Eco-Board IoT Dashboard</h3>
+                        <a href="https://ym.yaikh.com" class="project-link">ym.yaikh.com</a>
+                    </div>
+                    <p class="project-tech">Laravel • PHP • MySQL • Hardware Integration</p>
+                    <ul class="project-bullets">
+                        <li>Architected an enterprise-level factory management system mapping physical hardware to digital web interfaces.</li>
+                        <li>Implemented real-time worker line scanning logic for industrial efficiency tracking and analytics.</li>
+                        <li>Designed complex relational database schemas in MySQL to process high-volume IoT hardware data streams.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">Yaikh AI Dashboard</h3>
+                        <a href="https://yaikh.com" class="project-link">yaikh.com</a>
+                    </div>
+                    <p class="project-tech">React.js • Tailwind CSS • Framer Motion</p>
+                    <ul class="project-bullets">
+                        <li>Developed a premium, glassmorphism-styled dashboard tailored for high-end corporate environments.</li>
+                        <li>Integrated advanced AI chatbot logic and modular 3D animations to drastically enhance user engagement.</li>
+                        <li>Refactored legacy monolithic JavaScript code into highly modular, scalable, and reusable React components.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">Academic & Open Source Projects</h3>
+                        <a href="https://github.com/Khunboy168" class="project-link">GitHub Profile</a>
+                    </div>
+                    <p class="project-tech">PHP • JavaScript • React • Algorithms</p>
+                    <ul class="project-bullets">
+                        <li>Developed various full-stack applications and utilities as part of university coursework at Setec Institute.</li>
+                        <li>Maintain an active GitHub profile showcasing continuous learning and practical implementation of new technologies.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Certifications</h2>
+                <ul class="cert-list">
+                    <li><strong>Certified Ethical Hacker</strong> — Cisco Networking Academy</li>
+                    <li><strong>Meta Full-Stack Web Developer</strong> — Meta</li>
+                    <li><strong>Google AI Professional</strong> — Google</li>
+                    <li><strong>PHP & Laravel Framework Specialist</strong> — Board Infinity</li>
+                    <li><strong>Network & Cybersecurity Foundation</strong> — SALA CYBER</li>
+                    <li><strong>Gemini Certified Student</strong> — Google</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
